@@ -1,0 +1,139 @@
+\usepackage[single,mark-as-used=first,cite=first]{acroshin}  % mark as used only when the "first form" is used
+
+
+% \NewDocumentCommand \acf { sm }
+%   {
+%     \group_begin:
+%       \acro_defined:n { #2 }
+%       \IfBooleanTF { #1 }
+%         { \acro_use_if:n { * } }
+%         { \acro_use_if:n {   } }
+%       \acro_first:n { #2 }
+%     \group_end:
+%   }
+
+
+% Some acronyms are used without definite and indefinite articles, whereas the articles are used in their long forms.  When some adjectives qualifies these terms, it becomes a problem.  For example, "the more commonly used uniaxial PML (UPML)" cannot be written as "the more commonly used \ac{upml}".
+% Also, there are acronyms that include trailing words whose first characters do not appear in the acronyms.  (e.g., QMR for the quasi-minimal residual "method".)  When a family of these terms are used, it also becomes a problem.  For example, "the conjugate gradient (CG), biconjugate gradient (BiCG), and quasi-minimal residual (QMR) methods" cannot be written as "\ac{cg}, \ac{bicg}, and \ac{qmr}".
+% Because there are too many problems in using \ac{...} only, use it sparingly, especially those with the above problems.  Use \acf{} when the term is used for the first time, and use \acs{} when it should be an acronym.
+% Or, if I really want to use \ac{...}, then I should think about whether it will look good in all of the \acf{}, \acl{}, \acs{} forms.
+\DeclareAcronym{fdfd}{
+	short = FDFD,
+	long = finite-difference frequency-domain
+}
+\DeclareAcronym{fdtd}{
+	short = FDTD,
+	long = finite-difference time-domain
+}
+\DeclareAcronym{fem}{
+	short = FEM,
+	long = finite element method
+}
+\DeclareAcronym{bem}{
+	short = BEM,
+	long = boundary element method
+}
+\DeclareAcronym{mom}{
+	short = MoM,
+	long = method of moments
+}
+\DeclareAcronym{pml}{
+	short = PML,
+	long = perfectly matched layer
+}
+\DeclareAcronym{scpml}{
+	short = SC-\acs{pml},
+	long = stretched-coordinate \acls{pml},
+	short-plural = ,
+	long-plural = 
+}
+\DeclareAcronym{upml}{
+	short = U\acs{pml},
+	long = uniaxial \acls{pml},
+	short-plural = ,
+	long-plural = 
+}
+\DeclareAcronym{cpml}{
+	short = C\acs{pml},
+	long = convolutional \acls{pml},
+	short-plural = ,
+	long-plural = 
+}
+\DeclareAcronym{spupml}{
+	short = SP-\acs{upml},
+	long = scale-factor-preconditioned \acls{upml},
+	short-plural = ,
+	long-plural = 
+}
+\DeclareAcronym{2d}{
+	short = 2D,
+	long = two-dimensional
+}
+\DeclareAcronym{3d}{
+	short = 3D,
+	long = three-dimensional
+}
+\DeclareAcronym{em}{
+	short = EM,
+	long = electromagnetic
+}
+\DeclareAcronym{cg}{
+	short = CG,
+	long = conjugate gradient
+}
+\DeclareAcronym{bicg}{
+	short = BiCG,
+	long = biconjugate gradient
+}
+\DeclareAcronym{qmr}{
+	short = QMR,
+	long = quasi-minimal residual
+}
+\DeclareAcronym{gmres}{
+	short = GMRES,
+	long = generalized minimal residual
+}
+\DeclareAcronym{mdm}{
+	short = MDM,
+	long = metal-dielectric-metal
+}
+\DeclareAcronym{gpu}{
+	short = GPU,
+	long = graphics processing unit
+}
+\DeclareAcronym{svd}{
+	short = SVD,
+	long = singular value decomposition
+}
+\DeclareAcronym{arpack}{
+	short = ARPACK,
+	long = Arnoldi Package
+}
+\DeclareAcronym{petsc}{
+	short = PETSc,
+	long = {portable, extensible toolkit for scientific computation}
+}
+\DeclareAcronym{pec}{
+	short = PEC,
+	long = perfect electric conductor
+}
+\DeclareAcronym{ic}{
+	short = IC,
+	long = integrated circuit
+}
+\DeclareAcronym{mpb}{
+	short = MPB,
+	long = MIT Photonic-Bands
+}
+\DeclareAcronym{te}{
+	short = TE,
+	long = transverse-electric
+}
+\DeclareAcronym{tm}{
+	short = TM,
+	long = transverse-magnetic
+}
+\DeclareAcronym{tem}{
+	short = TEM,
+	long = transverse-electromagnetic
+}

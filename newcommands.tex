@@ -1,0 +1,272 @@
+% New commands
+\newcommand*{\pdt}{\partial_t}
+\newcommand*{\pdx}{\partial_x}
+\newcommand*{\pdy}{\partial_y}
+\newcommand*{\pdz}{\partial_z}
+\newcommand*{\Dd}{\Delta}
+\newcommand*{\Dx}{\Dd_x}
+\newcommand*{\Dy}{\Dd_y}
+\newcommand*{\Dz}{\Dd_z}
+\newcommand*{\Dw}{\Dd_w}
+\newcommand*{\Dtx}{\widetilde{\Dd}_x}
+\newcommand*{\Dty}{\widetilde{\Dd}_y}
+\newcommand*{\Dtz}{\widetilde{\Dd}_z}
+\newcommand*{\Dtw}{\widetilde{\Dd}_w}
+\newcommand*{\Dkx}{\Dd_{\kx}}
+\newcommand*{\Dky}{\Dd_{\ky}}
+\newcommand*{\Ex}{E_x}
+\newcommand*{\Ey}{E_y}
+\newcommand*{\Ez}{E_z}
+\newcommand*{\Ew}{E_w}
+\newcommand*{\Hx}{H_x}
+\newcommand*{\Hy}{H_y}
+\newcommand*{\Hz}{H_z}
+\newcommand*{\Hw}{H_w}
+\newcommand*{\Jx}{J_x}
+\newcommand*{\Jy}{J_y}
+\newcommand*{\Jz}{J_z}
+\newcommand*{\Mx}{M_x}
+\newcommand*{\My}{M_y}
+\newcommand*{\Mz}{M_z}
+\newcommand*{\epsx}{\eps_x}
+\newcommand*{\epsy}{\eps_y}
+\newcommand*{\epsz}{\eps_z}
+\newcommand*{\epsw}{\eps_w}
+\newcommand*{\mux}{\mu_x}
+\newcommand*{\muy}{\mu_y}
+\newcommand*{\muz}{\mu_z}
+\newcommand*{\muw}{\mu_w}
+\newcommand*{\ijk}{{i,j,k}}
+\newcommand*{\Ijk}{{i+1,j,k}}
+\newcommand*{\iJk}{{i,j+1,k}}
+\newcommand*{\ijK}{{i,j,k+1}}
+\newcommand*{\iJK}{{i-1,j,k}}
+\newcommand*{\IjK}{{i,j-1,k}}
+\newcommand*{\IJk}{{i,j,k-1}}
+\newcommand*{\curl}{\nabla\times}
+\newcommand*{\scurl}{\nabla_s\times}
+\newcommand*{\divg}{\nabla\cdot}
+\newcommand*{\w}{\omega}
+\newcommand*{\tauz}{10^{-6}}
+\DeclareMathOperator*{\diag}{diag}
+\DeclareMathOperator*{\argmin}{argmin}
+\newcommand*{\CK}{\mathcal{K}}
+\newcommand*{\Axb}{A x = b}
+
+% Energy density
+\newcommand*{\CE}{\mathcal{E}}
+\newcommand*{\CH}{\mathcal{H}}
+\newcommand*{\CD}{\mathcal{D}}
+\newcommand*{\CB}{\mathcal{B}}
+\newcommand*{\CJ}{\mathcal{J}}
+\newcommand*{\CM}{\mathcal{M}}
+\newcommand*{\CF}{\mathcal{F}}
+\newcommand*{\eiwt}{e^{i\w t}}
+
+
+% PML
+\newcommand*{\tu}{\mathrm{u}}
+\newcommand*{\tuz}{\mathrm{u_0}}
+\newcommand*{\tsc}{\mathrm{sc}}
+\newcommand*{\tscz}{\mathrm{sc_0}}
+\newcommand*{\tnonz}{\mathrm{r_0}}
+\newcommand*{\sigmin}{\sigma_{\min}}
+\newcommand*{\sigmax}{\sigma_{\max}}
+\newcommand*{\umin}{u_{\min}}
+\newcommand*{\vmin}{v_{\min}}
+\newcommand*{\umax}{u_{\max}}
+\newcommand*{\vmax}{v_{\max}}
+\newcommand*{\kko}{{\kk,1}}
+\newcommand*{\kkt}{{\kk,2}}
+\newcommand*{\kkth}{{\kk,3}}
+\newcommand*{\kkzo}{{\kkz,1}}
+\newcommand*{\kkzt}{{\kkz,2}}
+\newcommand*{\kkzth}{{\kkz,3}}
+\newcommand*{\teneps}{\overline{\overline{\eps}}}
+\newcommand*{\tenmu}{\overline{\overline{\mu}}}
+\newcommand*{\teig}{\mathrm{eig}}
+\newcommand*{\tsym}{\mathrm{sym}}
+\newcommand*{\wmax}{\w_{\max}}
+\newcommand*{\wmaxbar}{\overline{\w}_{\max}}
+\newcommand*{\kmax}{k_{\max}}
+\newcommand*{\tjac}{\mathrm{jac}}
+\newcommand*{\pprime}{{\prime\prime}}
+\newcommand*{\vep}{\eps^\prime}
+\newcommand*{\vepp}{{\eps^\pprime}}
+\newcommand*{\veinf}{{\eps_\infty}}
+\newcommand*{\Tkk}{T_\kk}
+\newcommand*{\Skk}{S_\kk}
+\newcommand*{\Ttkk}{\widetilde{T}_\kk}
+\newcommand*{\sigmat}{\tilde{\sigma}}
+\newcommand*{\sxpp}{{s_x^\pprime}}
+\newcommand*{\swpp}{{s_w^\pprime}}
+\newcommand*{\szpp}{{s_0^\pprime}}
+\newcommand*{\pz}{{(0)}}
+\newcommand*{\po}{{(1)}}
+\newcommand*{\no}{{-1}}
+\newcommand{\T}{\intercal}  % \mathsf{T} does not aligned vertically well with a minus sign in ^{-T}
+\newcommand*{\ZZ}{\mathbb{Z}}
+\newcommand*{\Tuzky}{\at{\Tkk^\tuz}{k_y=\kyz}}
+\newcommand*{\Tsczky}{\at{\Tkk^\tscz}{k_y=\kyz}}
+\newcommand*{\Tuzny}{\at{\Tkk^\tuz}{k_y=2\pi n_y/L_y}}
+\newcommand*{\Tsczny}{\at{\Tkk^\tscz}{k_y=2\pi n_y/L_y}}
+\newcommand*{\Tuznyz}{\at{\Tkk^\tuz}{k_y=2\pi \nyz/L_y}}
+\newcommand*{\Tscznyz}{\at{\Tkk^\tscz}{k_y=2\pi \nyz/L_y}}
+\newcommand*{\kx}{k_x}
+\newcommand*{\ky}{k_y}
+\newcommand*{\kz}{k_z}
+\newcommand*{\kxz}{k_{x0}}
+\newcommand*{\kyz}{k_{y0}}
+\newcommand*{\kkz}{{\kk_0}}
+\newcommand*{\Tkkz}{T_\kkz}
+\newcommand*{\Tkkn}{T_\kkn}
+\newcommand*{\Tuzrz}{\at{\Tkkz^\tuz}{r=0}}
+\newcommand*{\Tsczrz}{\at{\Tkkz^\tscz}{r=0}}
+\newcommand*{\kku}{{\kk^\tu}}
+\newcommand*{\kksc}{{\kk^\tsc}}
+\newcommand*{\Tkku}{T_\kku}
+\newcommand*{\Tkksc}{T_\kksc}
+\newcommand*{\nyz}{n_{y0}}
+\newcommand*{\tin}{\mathrm{in}}
+\newcommand*{\tout}{\mathrm{out}}
+\newcommand*{\xin}{x_\tin}
+\newcommand*{\xout}{x_\tout}
+\newcommand*{\Sin}{S_\tin}
+\newcommand*{\Sout}{S_\tout}
+\newcommand*{\test}{\mathrm{est}}
+\newcommand*{\tuest}{{\tu,\test}}
+\newcommand*{\tscest}{{\tsc,\test}}
+\newcommand*{\Ag}{\mathrm{Ag}}
+\newcommand*{\SiOt}{\mathrm{SiO_2}}
+\newcommand*{\Si}{\mathrm{Si}}
+\newcommand*{\Au}{\mathrm{Au}}
+\newcommand*{\Sdi}{{S_i}}
+\newcommand*{\Sdj}{{S_j}}
+\newcommand*{\xsi}{\atbar{x}{\Sdi}}
+\newcommand*{\xsj}{\atbar{x}{\Sdj}}
+\newcommand*{\Dj}{{D_j}}
+\newcommand*{\Pk}{{P_k}}
+\newcommand*{\Pp}{{P^\prime}}
+\newcommand*{\sigmaxs}{\atbar{\sigmax}{S}}
+\newcommand*{\sigmins}{\atbar{\sigmin}{S}}
+\newcommand*{\sigmaxsi}{\atbar{\sigmax}{\Sdi}}
+\newcommand*{\sigminsi}{\atbar{\sigmin}{\Sdi}}
+\newcommand*{\sigmindj}{\atbar{\sigmin^\tnonz}{\Dj}}
+\newcommand*{\sigminpku}{\atbar{\sigmin^\tuz}{\Pk}}
+\newcommand*{\sigminpksc}{\atbar{\sigmin^\tscz}{\Pk}}
+\newcommand*{\sigmind}{\atbar{\sigmin^\tnonz}{D}}
+\newcommand*{\sigminpu}{\atbar{\sigmin^\tuz}{P}}
+\newcommand*{\sigminppsc}{\atbar{\sigmin^\tscz}{\Pp}}
+\newcommand*{\sigminppu}{\atbar{\sigmin^\tuz}{\Pp}}
+
+% spectrum engineering
+\newcommand*{\td}{\text{-}}
+\newcommand*{\xyz}{x\td,y\td,z}
+\newcommand*{\CC}{\mathbb{C}}
+\newcommand*{\RR}{\mathbb{R}}
+\newcommand*{\re}[1]{\operatorname{Re}\left\{#1\right\}}
+\newcommand*{\im}[1]{\operatorname{Im}\left\{#1\right\}}
+\newcommand*{\abs}[1]{{\left|#1\right|}}
+\newcommand*{\norm}[1]{{\left\|#1\right\|}}
+\newcommand*{\spanvecs}[1]{\operatorname{span}\left\{#1\right\}}
+\newcommand*{\PPsi}{\mathbf{\Psi}}
+\newcommand*{\EE}{\mathbf{E}}
+\newcommand*{\HH}{\mathbf{H}}
+\newcommand*{\PP}{\mathbf{P}}
+\newcommand*{\VV}{\mathbf{V}}
+\newcommand*{\BB}{\mathbf{B}}
+\newcommand*{\DD}{\mathbf{D}}
+\newcommand*{\JJ}{\mathbf{J}}
+\newcommand*{\MM}{\mathbf{M}}
+\newcommand*{\rr}{\mathbf{r}}
+\newcommand*{\kk}{\mathbf{k}}
+\newcommand*{\kksq}{\abs{\kk}^2}
+\newcommand*{\FF}{\mathbf{F}}
+\newcommand*{\GG}{\mathbf{G}}
+\newcommand*{\CP}{\mathcal{P}}
+\newcommand*{\xhat}{\mathbf{\hat{x}}}
+\newcommand*{\yhat}{\mathbf{\hat{y}}}
+\newcommand*{\zhat}{\mathbf{\hat{z}}}
+\newcommand*{\what}{\mathbf{\hat{w}}}
+\newcommand*{\xbar}{\overline{x}}
+\newcommand*{\nn}{{n \times n}}
+\newcommand*{\eps}{\varepsilon}
+\newcommand*{\at}[2]{{\left(#1\right)}_{#2}}
+\newcommand*{\atbar}[2]{{\left.#1\right|}_{#2}}
+\newcommand*{\nr}{\norm{r_m}}
+\newcommand*{\nz}{\norm{z_m}}
+\newcommand*{\zmi}{z_{mi}}
+\newcommand*{\zzi}{z_{0i}}
+\newcommand*{\rb}{r_m/\norm{b}}
+\newcommand*{\rzb}{r_0/\norm{b}}
+\newcommand*{\nrb}{\nr/\norm{b}}
+\newcommand*{\nrzb}{\norm{r_0}/\norm{b}}
+\newcommand*{\hmj}{h_{mj}}
+\newcommand*{\hmz}{h_{m0}}
+\newcommand*{\hzz}{h_{00}}
+\newcommand*{\zk}{\zeta_k}
+\newcommand*{\zko}{\zeta_{k+1}}
+\newcommand*{\const}{\mathrm{const.}}
+\newcommand*{\tgez}{t_{j \ge 0}}
+\newcommand*{\tgz}{t_{j > 0}}
+\newcommand*{\tlz}{t_{j < 0}}
+\newcommand*{\tlez}{t_{j \le 0}}
+\newcommand*{\pd}{\tilde{p}}
+\newcommand*{\rd}{\tilde{r}}
+\newcommand*{\zd}{\tilde{z}}
+\newcommand*{\nrd}{\norm{\rd_m}}
+\newcommand*{\nzd}{\norm{\zd_m}}
+\newcommand*{\zdmi}{\zd_{mi}}
+\newcommand*{\zdzi}{\zd_{0i}}
+\newcommand*{\rdb}{\rd_m/\norm{b}}
+\newcommand*{\rdzb}{\rd_0/\norm{b}}
+\newcommand*{\nrdb}{\nrd/\norm{b}}
+\newcommand*{\nrdzb}{\norm{\rd_0}/\norm{b}}
+\newcommand*{\hmof}{{\left\lfloor(m+1)/2\right\rfloor}}
+\newcommand*{\hmoc}{{\left\lceil(m+1)/2\right\rceil}}
+\newcommand*{\hmf}{{\left\lfloor m/2\right\rfloor}}
+\newcommand*{\lmin}{\lambda_{\min}}
+\newcommand*{\Adef}{A_\mathrm{def}}
+\newcommand*{\Aind}{A_\mathrm{ind}}
+\newcommand*{\zz}{\zeta_0}
+\newcommand*{\pdm}{\pd_m}
+\newcommand*{\CPm}{\CP_m}
+\newcommand*{\pdp}{\pdm^{\prime}}
+
+
+% coax
+\newcommand*{\nm}{\nano\metre}
+\newcommand*{\micron}{\micro\metre}
+\newcommand*{\lcomm}{\SI{1.55}{\micron}}
+\newcommand*{\lz}{\lambda_0}
+\newcommand*{\Zl}{Z_L}
+\newcommand*{\Zin}{Z_\mathrm{in}}
+\newcommand*{\Zout}{Z_\mathrm{out}}
+\newcommand*{\bin}{b_\mathrm{in}}
+\newcommand*{\Vin}{V_\mathrm{in}}
+
+% index
+\usepackage{xparse}
+\NewDocumentCommand\indexac{omo}{
+	\IfNoValueTF{#1}
+	{\IfNoValueTF{#3}
+		{\index{\acf{#2}}}
+		{\index{\acf{#2} #3}}}
+	{\IfNoValueTF{#3}
+		{\index{\acf{#1}!\acf{#2}}}
+		{\index{\acf{#1}!\acf{#2} #3}}}
+}
+\NewDocumentCommand\indexacf{omo}{
+	\IfNoValueTF{#1}
+	{\IfNoValueTF{#3}
+		{\indexac{#2}\index{\acs{#2}|see{\acl{#2}}}}
+		{\indexac{#2}[#3]\index{\acs{#2} #3|see{\acl{#2} #3}}}}
+	{\IfNoValueTF{#3}
+		{\indexac[#1]{#2}\index{\acs{#2}|see{\acl{#1}}}}
+		{\indexac[#1]{#2}[#3]\index{\acs{#2} #3|see{\acl{#1}}}}}
+}
+\NewDocumentCommand\indexacfn{omm}{  % no #3 in short form (like "method" in quasi-minimal residual method)
+	\IfNoValueTF{#1}
+	{\indexac{#2}[#3]\index{\acs{#2}|see{\acl{#2} #3}}}
+	{\indexac[#1]{#2}[#3]\index{\acs{#2}|see{\acl{#1}}}}
+}
