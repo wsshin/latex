@@ -1,3 +1,5 @@
+\usepackage{amsmath}
+
 % New commands
 \newcommand*{\pdt}{\partial_t}
 \newcommand*{\pdx}{\partial_x}
@@ -165,11 +167,12 @@
 \newcommand*{\xyz}{x\td,y\td,z}
 \newcommand*{\CC}{\mathbb{C}}
 \newcommand*{\RR}{\mathbb{R}}
-\newcommand*{\re}[1]{\operatorname{Re}\left\{#1\right\}}
-\newcommand*{\im}[1]{\operatorname{Im}\left\{#1\right\}}
+\newcommand*{\re}[1]{\operatorname{Re}\!\left\{#1\right\}}
+\newcommand*{\im}[1]{\operatorname{Im}\!\left\{#1\right\}}
 \newcommand*{\abs}[1]{{\left|#1\right|}}
 \newcommand*{\norm}[1]{{\left\|#1\right\|}}
-\newcommand*{\spanvecs}[1]{\operatorname{span}\left\{#1\right\}}
+\newcommand*{\spanvecs}[1]{\operatorname{span}\!\left\{#1\right\}}
+\newcommand*{\spanvecsinline}[1]{\operatorname{span}\{#1\}}
 \newcommand*{\PPsi}{\mathbf{\Psi}}
 \newcommand*{\EE}{\mathbf{E}}
 \newcommand*{\HH}{\mathbf{H}}
