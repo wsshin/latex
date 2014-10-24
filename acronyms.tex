@@ -1,18 +1,4 @@
-\usepackage[single,mark-as-used=first,cite=first]{acroshin}  % mark-as-used only when the "first form" is used
-
-
-% \NewDocumentCommand \acf { sm }
-%   {
-%     \group_begin:
-%       \acro_defined:n { #2 }
-%       \IfBooleanTF { #1 }
-%         { \acro_use_if:n { * } }
-%         { \acro_use_if:n {   } }
-%       \acro_first:n { #2 }
-%     \group_end:
-%   }
-
-
+\usepackage[single,mark-as-used=first,cite=first]{acro}  % mark-as-used only when the "first form" is used
 
 % Some acronyms are used without definite and indefinite articles, whereas the articles are used in their long forms.  When some adjectives qualifies these terms, it becomes a problem.  For example, "the more commonly used uniaxial PML (UPML)" cannot be written as "the more commonly used \ac{upml}".
 % Also, there are acronyms that include trailing words whose first characters do not appear in the acronyms.  (e.g., QMR for the quasi-minimal residual "method".)  When a family of these terms are used, it also becomes a problem.  For example, "the conjugate gradient (CG), biconjugate gradient (BiCG), and quasi-minimal residual (QMR) methods" cannot be written as "\ac{cg}, \ac{bicg}, and \ac{qmr}".
@@ -48,25 +34,25 @@
 }
 \DeclareAcronym{scpml}{
 	short = SC-\acs{pml},
-	long = stretched-coordinate \acls{pml},
+	long = stretched-coordinate \acifused{pml}{\acs{pml}}{\acl{pml}},
 	short-plural = ,
 	long-plural = 
 }
 \DeclareAcronym{upml}{
 	short = U\acs{pml},
-	long = uniaxial \acls{pml},
+	long = uniaxial \acifused{pml}{\acs{pml}}{\acl{pml}},
 	short-plural = ,
 	long-plural = 
 }
 \DeclareAcronym{cpml}{
 	short = C\acs{pml},
-	long = convolutional \acls{pml},
+	long = convolutional \acifused{pml}{\acs{pml}}{\acl{pml}},
 	short-plural = ,
 	long-plural = 
 }
 \DeclareAcronym{spupml}{
 	short = SP-\acs{upml},
-	long = scale-factor-preconditioned \acls{upml},
+	long = scale-factor-preconditioned \acifused{upml}{\acs{upml}}{\acl{upml}},
 	short-plural = ,
 	long-plural = 
 }
