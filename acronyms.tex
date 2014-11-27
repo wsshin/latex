@@ -4,6 +4,44 @@
 % Also, there are acronyms that include trailing words whose first characters do not appear in the acronyms.  (e.g., QMR for the quasi-minimal residual "method".)  When a family of these terms are used, it also becomes a problem.  For example, "the conjugate gradient (CG), biconjugate gradient (BiCG), and quasi-minimal residual (QMR) methods" cannot be written as "\ac{cg}, \ac{bicg}, and \ac{qmr}".
 % Because there are too many problems in using \ac{...} only, use it sparingly, especially those with the above problems.  Use \acf{} when the term is used for the first time, and use \acs{} when it should be an acronym.
 % Or, if I really want to use \ac{...}, then I should think about whether it will look good in all of the \acf{}, \acl{}, \acs{} forms.
+
+% General
+\DeclareAcronym{2d}{
+	short = 2D,
+	long = two-dimensional
+}
+\DeclareAcronym{3d}{
+	short = 3D,
+	long = three-dimensional
+}
+
+% EM
+\DeclareAcronym{em}{
+	short = EM,
+	long = electromagnetic
+}
+\DeclareAcronym{mdm}{
+	short = MDM,
+	long = metal-dielectric-metal
+}
+\DeclareAcronym{te}{
+	short = TE,
+	long = transverse-electric
+}
+\DeclareAcronym{tm}{
+	short = TM,
+	long = transverse-magnetic
+}
+\DeclareAcronym{tem}{
+	short = TEM,
+	long = transverse-electromagnetic
+}
+\DeclareAcronym{pec}{
+	short = PEC,
+	long = perfect electric conductor
+}
+
+% Discetization methods
 \DeclareAcronym{fdfd}{
 	short = FDFD,
 	long = finite-difference frequency-domain
@@ -28,6 +66,8 @@
 	short = MoM,
 	long = method of moments
 }
+
+% PMLs
 \DeclareAcronym{pml}{
 	short = PML,
 	long = perfectly matched layer
@@ -56,21 +96,15 @@
 	short-plural = ,
 	long-plural = 
 }
-\DeclareAcronym{2d}{
-	short = 2D,
-	long = two-dimensional
-}
-\DeclareAcronym{3d}{
-	short = 3D,
-	long = three-dimensional
-}
-\DeclareAcronym{em}{
-	short = EM,
-	long = electromagnetic
-}
+
+% Mathematics
 \DeclareAcronym{cg}{
 	short = CG,
 	long = conjugate gradient
+}
+\DeclareAcronym{cgs}{
+	short = CGS,
+	long = conjugate gradient squared
 }
 \DeclareAcronym{bicg}{
 	short = BiCG,
@@ -84,18 +118,54 @@
 	short = GMRES,
 	long = generalized minimal residual
 }
-\DeclareAcronym{mdm}{
-	short = MDM,
-	long = metal-dielectric-metal
+\DeclareAcronym{svd}{
+	short = SVD,
+	long = singular value decomposition
+}
+\DeclareAcronym{ilu}{
+	short = ILU,
+	long = incomplete LU
+}
+\DeclareAcronym{fft}{
+	short = FFT,
+	long = fast Fourier transform
+}
+\DeclareAcronym{pde}{
+	short = PDE,
+	long = partial differential equation
+}
+
+% Technologies
+\DeclareAcronym{ic}{
+	short = IC,
+	long = integrated circuit
+}
+\DeclareAcronym{it}{
+	short = IT,
+	long = information technology
+}
+\DeclareAcronym{cad}{
+	short = CAD,
+	long = computer-aided design
+}
+\DeclareAcronym{flops}{
+	short = FLOPS,
+	long = floating-point operations per second
+}
+\DeclareAcronym{spm}{
+	short = SPM,
+	long = scanning probe microscope
 }
 \DeclareAcronym{gpu}{
 	short = GPU,
 	long = graphics processing unit
 }
-\DeclareAcronym{svd}{
-	short = SVD,
-	long = singular value decomposition
+\DeclareAcronym{hpc}{
+	short = HPC,
+	long = high-performance computing
 }
+
+% Software packages
 \DeclareAcronym{arpack}{
 	short = ARPACK,
 	long = Arnoldi Package
@@ -104,34 +174,20 @@
 	short = PETSc,
 	long = {portable, extensible toolkit for scientific computation}
 }
-\DeclareAcronym{pec}{
-	short = PEC,
-	long = perfect electric conductor
-}
-\DeclareAcronym{ic}{
-	short = IC,
-	long = integrated circuit
+\DeclareAcronym{fftw}{
+	short = FFTW,
+	long = Fastest Fourier Transform in the West
 }
 \DeclareAcronym{mpb}{
 	short = MPB,
 	long = MIT Photonic-Bands
 }
-\DeclareAcronym{te}{
-	short = TE,
-	long = transverse-electric
+\DeclareAcronym{meep}{
+	short = MEEP,
+	long = MIT Electromagnetic Equation Propagation
 }
-\DeclareAcronym{tm}{
-	short = TM,
-	long = transverse-magnetic
-}
-\DeclareAcronym{tem}{
-	short = TEM,
-	long = transverse-electromagnetic
-}
-\DeclareAcronym{cad}{
-	short = CAD,
-	long = computer-aided design
-}
+
+% Organizations
 \DeclareAcronym{tacc}{
 	short = TACC,
 	long = Texas Advanced Computing Center
@@ -148,41 +204,9 @@
 	short = NCSA,
 	long = National Center for Supercomputing Applications
 }
-\DeclareAcronym{flops}{
-	short = FLOPS,
-	long = floating-point operations per second
-}
-\DeclareAcronym{pde}{
-	short = PDE,
-	long = partial differential equation
-}
-\DeclareAcronym{ilu}{
-	short = ILU,
-	long = incomplete LU
-}
-\DeclareAcronym{spm}{
-	short = SPM,
-	long = scanning probe microscope
-}
 \DeclareAcronym{mit}{
 	short = MIT,
 	long = Massachusetts Institute of Technology
-}
-\DeclareAcronym{fft}{
-	short = FFT,
-	long = fast Fourier transform
-}
-\DeclareAcronym{fftw}{
-	short = FFTW,
-	long = Fastest Fourier Transform in the West
-}
-\DeclareAcronym{it}{
-	short = IT,
-	long = information technology
-}
-\DeclareAcronym{meep}{
-	short = MEEP,
-	long = MIT Electromagnetic Equation Propagation
 }
 \DeclareAcronym{ams}{
 	short = AMS,
@@ -191,10 +215,6 @@
 \DeclareAcronym{siam}{
 	short = SIAM,
 	long = Society for Industrial and Applied Mathematics
-}
-\DeclareAcronym{hpc}{
-	short = HPC,
-	long = high-performance computing
 }
 \DeclareAcronym{snu}{
 	short = SNU,
