@@ -1,0 +1,156 @@
+% Bibliography
+\usepackage{csquotes}  % context-sensitive quotation
+
+% New sorting scheme declared based on ydnt (year descending, name, title) and nymdt (name year, month, day, title) in http://tex.stackexchange.com/questions/46868/biblatex-sorting-by-date.
+\DeclareSortingScheme{ymddnt}{  % year month day in decreasing order, and the name and title in ascending order
+  \sort{
+    \field{presort}
+  }
+  \sort[final]{
+    \field{sortkey}
+  }
+  \sort[direction=descending]{
+    \field[strside=left,strwidth=4]{sortyear}
+    \field[strside=left,strwidth=4]{year}
+    \literal{9999}
+  }
+  \sort[direction=descending]{
+    \field[padside=left,padwidth=2,padchar=0]{month}
+    \literal{00}
+  }
+  \sort[direction=descending]{
+    \field[padside=left,padwidth=2,padchar=0]{day}
+    \literal{00}
+  }
+  \sort{
+    \field{sortname}
+    \field{author}
+    \field{editor}
+    \field{translator}
+    \field{sorttitle}
+    \field{title}
+  }
+  \sort{
+    \field{sorttitle}
+    \field{title}
+  }
+}
+
+% Change field formats.
+\renewcommand*{\postnotedelim}{}
+\DeclareFieldFormat{postnote}{\addcomma\addspace#1}  % for (citation number)^(section)
+\DeclareFieldFormat[article]{volume}{\textbf{#1}}
+\DeclareFieldFormat{edition}{#1\addspace ed\addperiod}
+% \DeclareFieldFormat{pages}{#1\addspace\printfield{url}}  % declared later in page range compression
+% \DeclareFieldFormat{usera}{art\addperiod\addspace no\addperiod\addspace#1}
+\DeclareFieldFormat{usera}{#1\addspace\printfield{url}\addspace\printfield{note}}
+% \DeclareFieldFormat{url}{URL\addcolon\texttt{[\href{#1}{link}]}}
+\DeclareFieldFormat{url}{[\href{#1}{link}]}
+\DeclareFieldFormat{shortjournal}{\textsl{#1}}
+
+% Define new cite commands.
+\DeclareCiteCommand{\citejournalyear}
+	{\bibopenparen\usebibmacro{prenote}}
+	{\usebibmacro{citeindex}%
+	\printfield{shortjournal}\addspace\printfield{year}}
+	{\multicitedelim}
+	{\usebibmacro{postnote}\bibcloseparen}
+
+% % For "last name, first name" format in References
+% \DeclareNameAlias{sortname}{last-first}
+% \DeclareNameAlias{default}{last-first}
+
+\newcommand*{\longfullcite}{%
+  \AtNextCite{\defcounter{maxnames}{99}}%
+  \fullcite}
+
+\renewcommand*{\bibpagespunct}{\addcolon\space}
+
+\renewbibmacro{in:}{%  remove "In:" from article citation
+	\ifentrytype{article}{}{\printtext{\bibstring{in}\intitlepunct}}
+}
+
+\renewbibmacro*{note+pages}{% modify macro defined in /usr/local/texlive/2013/texmf-dist/tex/latex/biblatex/bbx
+	\setunit{\bibpagespunct}% prevent capitalization of pp.
+	\printfield{pages}%
+	\setunit{\bibpagespunct}% prevent capicalization of art. no.
+	\printfield{usera}%
+}
+
+\renewbibmacro*{doi+eprint+url}{% modify macro defined in /usr/local/texlive/2013/texmf-dist/tex/latex/biblatex/bbx
+	% \iftoggle{bbx:doi}
+	% 	{\printfield{doi}}
+	% 	{}%
+	% \newunit\newblock
+	% \iftoggle{bbx:eprint}
+	% 	{\usebibmacro{eprint}}
+	% 	{}%
+	% \newunit\newblock
+	% \iftoggle{bbx:url}
+	% 	{\usebibmacro{url+urldate}}
+	% 	{}%
+	% \newunit% put a period and signals a new unit
+	% \printfield{note}%
+}
+
+\AtEveryBibitem{%
+	\ifboolexpr{test {\ifentrytype{article}}}
+		{\clearfield{month}%
+		\clearfield{labelmonth}}%
+		{}%
+	\clearfield{isbn}%
+	\clearfield{issn}%
+	\clearfield{doi}%
+	\clearfield{number}%
+	\clearlist{language}%
+}
+
+% Below, every line must ends with a percent sign to prevent erroneous tab added in front of invocation of \fullcite{}.
+\AtEveryCitekey{%
+	\ifboolexpr{test {\ifentrytype{article}}}
+		{\clearfield{month}%
+		\clearfield{labelmonth}}%
+		{}%
+	\clearfield{isbn}%
+	\clearfield{issn}%
+	\clearfield{doi}%
+	\clearfield{number}%
+	\clearlist{language}%
+}
+
+\DefineBibliographyExtras{english}{%  put period within quotation marks around title
+	\uspunctuation%
+}
+
+% Page range compression (http://tex.stackexchange.com/questions/44492/biblatex-chicago-style-page-ranges)
+% \DeclareFieldFormat{postnote}{\mkcomprange[{\mkpageprefix[pagination]}]{#1}}
+\DeclareFieldFormat{pages}{\mkcomprange{#1}\addspace\printfield{url}\addspace\printfield{note}}
+
+\setcounter{mincomprange}{100}
+\setcounter{maxcomprange}{100000}
+\setcounter{mincompwidth}{10}
+
+\makeatletter
+\patchcmd{\blx@comprange@check}
+	{\blx@comprange@comp{#1}{#2}}
+	{\blx@tempcnta=#1
+		\divide\blx@tempcnta100
+		\multiply\blx@tempcnta100
+		\ifnumequal{\blx@tempcnta}{#1}
+			{\blx@range@out@value{#1\bibrangedash#2}}
+			{\blx@comprange@comp{#1}{#2}}}
+		{}{}
+\makeatother
+
+
+% Underline my name
+\DeclareNameFormat{author}{%
+	\ifthenelse{\equal{#1}{Shin}}%
+    	{\underline{\ifblank{#4}{}{#4\space}#1}}% #1 is Shin
+		{\ifthenelse{\equal{#1}{Shin*}}%
+    		{\underline{\ifblank{#4}{}{#4\space}Shin}*}%
+			{\ifblank{#4}{}{#4\space}#1}}%
+	\ifthenelse{\value{listcount}<\value{liststop}}%
+    	{\addcomma\space}
+    	{}
+}
