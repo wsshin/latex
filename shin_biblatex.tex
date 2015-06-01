@@ -68,11 +68,11 @@
 
 % \citejournalyear with internal hyperlink
 \DeclareCiteCommand{\citejournalyear}
-	{\bibopenparen\usebibmacro{prenote}}
+	{\bibopenbracket\usebibmacro{prenote}}
 	{\usebibmacro{citeindex}%
 	\printtext[bibhyperref]{\printfield{shortjournal}\addspace\printfield{year}}}
 	{\multicitedelim}
-	{\usebibmacro{postnote}\bibcloseparen}
+	{\usebibmacro{postnote}\bibclosebracket}
 
 % % For "last name, first name" format in References
 % \DeclareNameAlias{sortname}{last-first}
