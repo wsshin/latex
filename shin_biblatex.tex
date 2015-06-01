@@ -43,16 +43,34 @@
 \DeclareFieldFormat{edition}{#1\addspace ed\addperiod}
 % \DeclareFieldFormat{pages}{#1\addspace\printfield{url}}  % declared later in page range compression
 % \DeclareFieldFormat{usera}{art\addperiod\addspace no\addperiod\addspace#1}
-\DeclareFieldFormat{usera}{#1\addspace\printfield{url}\addspace\printfield{note}}
+\DeclareFieldFormat{usera}{#1\addspace\printfield{url}\addspace\printfield{note}}  % note used to indicate co-first authorship
 % \DeclareFieldFormat{url}{URL\addcolon\texttt{[\href{#1}{link}]}}
 \DeclareFieldFormat{url}{[\href{#1}{link}]}
 \DeclareFieldFormat{shortjournal}{\textsl{#1}}
 
 % Define new cite commands.
+
+% % \citejournalyear without hyperlink
+% \DeclareCiteCommand{\citejournalyear}
+% 	{\bibopenparen\usebibmacro{prenote}}
+% 	{\usebibmacro{citeindex}%
+% 	\printfield{shortjournal}\addspace\printfield{year}}
+% 	{\multicitedelim}
+% 	{\usebibmacro{postnote}\bibcloseparen}
+
+% % \citejournalyear with external hyperlink
+% \DeclareCiteCommand{\citejournalyear}
+% 	{\bibopenbracket\usebibmacro{prenote}}
+% 	{\usebibmacro{citeindex}%
+% 	\href{\thefield{url}}{\printfield{shortjournal}\addspace\printfield{year}}}
+% 	{\multicitedelim}
+% 	{\usebibmacro{postnote}\bibclosebracket}
+
+% \citejournalyear with internal hyperlink
 \DeclareCiteCommand{\citejournalyear}
 	{\bibopenparen\usebibmacro{prenote}}
 	{\usebibmacro{citeindex}%
-	\printfield{shortjournal}\addspace\printfield{year}}
+	\printtext[bibhyperref]{\printfield{shortjournal}\addspace\printfield{year}}}
 	{\multicitedelim}
 	{\usebibmacro{postnote}\bibcloseparen}
 
