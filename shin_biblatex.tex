@@ -42,7 +42,7 @@
 \DeclareFieldFormat[article]{volume}{\textbf{#1}}
 \DeclareFieldFormat{edition}{#1\addspace ed\addperiod}
 % \DeclareFieldFormat{pages}{#1\addspace\printfield{url}}  % declared later in page range compression
-% \DeclareFieldFormat{usera}{art\addperiod\addspace no\addperiod\addspace#1}
+% \DeclareFieldFormat{usera}{art\addperiod\addspace no\addperiod\addspace#1}  % art. no.
 \DeclareFieldFormat{usera}{#1\addspace\printfield{url}\addspace\printfield{note}}  % note used to indicate co-first authorship
 % \DeclareFieldFormat{url}{URL\addcolon\texttt{[\href{#1}{link}]}}
 \DeclareFieldFormat{url}{[\href{#1}{link}]}
@@ -78,10 +78,12 @@
 % \DeclareNameAlias{sortname}{last-first}
 % \DeclareNameAlias{default}{last-first}
 
+% \fullcite with the full list of authors
 \newcommand*{\longfullcite}{%
   \AtNextCite{\defcounter{maxnames}{99}}%
   \fullcite}
 
+% Put a colon (:) and a space before pages.
 \renewcommand*{\bibpagespunct}{\addcolon\space}
 
 \renewbibmacro{in:}{%  remove "In:" from article citation
