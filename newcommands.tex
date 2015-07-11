@@ -1,4 +1,5 @@
 \usepackage{amsmath}
+\usepackage{siunitx}
 
 % New commands
 \newcommand*{\pdt}{\partial_t}
@@ -54,7 +55,7 @@
 \DeclareMathOperator*{\argmin}{argmin}
 \newcommand*{\CK}{\mathcal{K}}
 \newcommand*{\Axb}{A x = b}
-\newcommand*{\gmax}{\gamma_{\max}}
+\newcommand*{\gmax}{\g_{\max}}
 
 % Energy density
 \newcommand*{\CE}{\mathcal{E}}
@@ -94,9 +95,12 @@
 \newcommand*{\kmax}{k_{\max}}
 \newcommand*{\tjac}{\mathrm{jac}}
 \newcommand*{\pprime}{{\prime\prime}}
-\newcommand*{\vep}{\eps^\prime}
-\newcommand*{\vepp}{{\eps^\pprime}}
-\newcommand*{\veinf}{{\eps_\infty}}
+% \newcommand*{\vep}{\eps^\prime}
+% \newcommand*{\vepp}{{\eps^\pprime}}
+% \newcommand*{\veinf}{{\eps_\infty}}
+\newcommand*{\epsp}{\eps^\prime}
+\newcommand*{\epspp}{{\eps^\pprime}}
+\newcommand*{\epsinf}{{\eps_\infty}}
 \newcommand*{\Tkk}{T_\kk}
 \newcommand*{\Skk}{S_\kk}
 \newcommand*{\Ttkk}{\widetilde{T}_\kk}
@@ -249,6 +253,42 @@
 \newcommand*{\Zout}{Z_\mathrm{out}}
 \newcommand*{\bin}{b_\mathrm{in}}
 \newcommand*{\Vin}{V_\mathrm{in}}
+
+% waveguide loss
+\newcommand*{\W}{\Omega}
+\newcommand*{\wpl}{\w_p}
+\newcommand*{\kpl}{k_p}
+\newcommand*{\wsp}{\w_{sp}}
+\newcommand*{\epsm}{\eps_m}
+\newcommand*{\epsd}{\eps_d}
+\newcommand*{\epsmd}{\eps_{m,d}}
+\newcommand*{\km}{\kappa_m}
+\newcommand*{\kd}{\kappa_d}
+\newcommand*{\kmd}{\kappa_{m,d}}
+\newcommand*{\g}{\gamma}
+\newcommand*{\G}{\Gamma}
+\newcommand*{\hG}{\G/2}
+\newcommand*{\qG}{\G/4}
+\newcommand*{\be}{\beta}
+\newcommand*{\wb}{\w\textrm{-}\be}
+\newcommand*{\gd}{\g\textrm{-}d}
+\newcommand*{\wbd}{\w(\be, d)}
+\newcommand*{\gbd}{\g(\be, d)}
+\newcommand*{\bdw}{\left.\be(d)\right|_\w}
+\newcommand*{\gdw}{\left.\g(d)\right|_\w}
+\newcommand*{\third}{{1/3}}
+\newcommand*{\sqrtthird}{\frac{1}{\sqrt{3}}}
+\newcommand*{\aW}{\abs{\W}}
+\newcommand*{\aepsm}{\abs{\epsm}}
+\newcommand*{\half}{\frac{1}{2}}
+\newcommand*{\quart}{\frac{1}{4}}
+\newcommand*{\kplinf}{\wpl \sqrt{\mu_0 \epsinf}}
+\newcommand*{\invcinf}{\sqrt{\mu_0 \epsinf}}
+\newcommand*{\invc}{\sqrt{\mu_0 \eps_0}}
+\newcommand*{\lpl}{\lambda_p}
+\newcommand*{\constant}{\mathrm{constant}}
+\newcommand*{\fomdrude}{\sqrt{\G}/\wpl}
+
 
 % MSPRF
 \newcommand{\sgn}{\operatorname{sgn}}
