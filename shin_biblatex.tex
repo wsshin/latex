@@ -36,6 +36,11 @@
   }
 }
 
+% When cited in the format of Shin et. al. 20XX, do not print "n.d." (no date) when year field is empty.
+\DefineBibliographyStrings{english}{%
+	nodate = {\printfield{shortjournal}}
+}
+
 % Change field formats.
 \renewcommand*{\postnotedelim}{}
 \DeclareFieldFormat{postnote}{\addcomma\addspace#1}  % for (citation number)^(section)
@@ -67,12 +72,16 @@
 % 	{\usebibmacro{postnote}\bibclosebracket}
 
 % \citejournalyear with internal hyperlink
-\DeclareCiteCommand{\citejournalyear}
-	{\bibopenbracket\usebibmacro{prenote}}
+% Below, not putting "%" at the end of each line produces extra spaces.
+\DeclareCiteCommand{\citejournalyear}%
+	{\bibopenbracket\usebibmacro{prenote}}%
 	{\usebibmacro{citeindex}%
-	\printtext[bibhyperref]{\printfield{shortjournal}\addspace\printfield{year}}}
-	{\multicitedelim}
-	{\usebibmacro{postnote}\bibclosebracket}
+	\printtext[bibhyperref]{%
+		\iffieldundef{shortjournal}
+			{\printfield{year}}
+			{\printfield{shortjournal}\addspace\printfield{year}}}}%
+	{\multicitedelim}%
+	{\usebibmacro{postnote}\bibclosebracket}%
 
 % % For "last name, first name" format in References
 % \DeclareNameAlias{sortname}{last-first}
