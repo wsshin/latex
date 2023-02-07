@@ -1,11 +1,18 @@
 \usepackage{amsmath}
 \usepackage{siunitx}
+\usepackage{xifthen}
 
 % New commands
+%\newcommand*{\cd}[1]{{\delta #1}}
+\newcommand*{\cd}[2][]{\ifthenelse{\isempty{#1}}{{\delta #2}}{{\delta_{#1} #2}}}
+\newcommand*{\pard}[2][]{{\partial_{#1} #2}}
 \newcommand*{\pdt}{\partial_t}
 \newcommand*{\pdx}{\partial_x}
 \newcommand*{\pdy}{\partial_y}
 \newcommand*{\pdz}{\partial_z}
+%\newcommand*{\diff}[1]{{\Delta #1}}
+%\newcommand*{\diff}[2][]{{\Delta_{#1} #2}}
+\newcommand*{\diff}[2][]{\ifthenelse{\isempty{#1}}{{\Delta #2}}{{\Delta_{#1} #2}}}
 \newcommand*{\Dd}{\Delta}
 \newcommand*{\Ddx}{\Dd_x}
 \newcommand*{\Ddy}{\Dd_y}
@@ -74,8 +81,9 @@
 \newcommand*{\tsc}{\mathrm{sc}}
 \newcommand*{\tscz}{\mathrm{sc_0}}
 \newcommand*{\tnonz}{\mathrm{r_0}}
-\newcommand*{\sigmin}{\sigma_{\min}}
-\newcommand*{\sigmax}{\sigma_{\max}}
+\newcommand*{\sg}{\sigma}
+\newcommand*{\sigmin}{\sig_{\min}}
+\newcommand*{\sigmax}{\sig_{\max}}
 \newcommand*{\umin}{u_{\min}}
 \newcommand*{\vmin}{v_{\min}}
 \newcommand*{\umax}{u_{\max}}
@@ -104,7 +112,7 @@
 \newcommand*{\Tkk}{T_\kk}
 \newcommand*{\Skk}{S_\kk}
 \newcommand*{\Ttkk}{\widetilde{T}_\kk}
-\newcommand*{\sigmat}{\tilde{\sigma}}
+\newcommand*{\sigmat}{\tilde{\sig}}
 \newcommand*{\sxpp}{{s_x^\pprime}}
 \newcommand*{\swpp}{{s_w^\pprime}}
 \newcommand*{\szpp}{{s_0^\pprime}}
@@ -171,8 +179,10 @@
 \newcommand*{\xyz}{x\td,y\td,z}
 \newcommand*{\CC}{\mathbb{C}}
 \newcommand*{\RR}{\mathbb{R}}
-\newcommand*{\real}[1]{\operatorname{Re}\!\left\{#1\right\}}
-\newcommand*{\imag}[1]{\operatorname{Im}\!\left\{#1\right\}}
+\newcommand*{\re}{\mathrm{re}}
+\newcommand*{\im}{\mathrm{im}}
+\newcommand*{\real}[1]{\operatorname{Re}\!\left[#1\right]}
+\newcommand*{\imag}[1]{\operatorname{Im}\!\left[#1\right]}
 \newcommand*{\abs}[1]{{\left|#1\right|}}
 \newcommand*{\norm}[1]{{\left\|#1\right\|}}
 \newcommand*{\spanvecs}[1]{\operatorname{span}\!\left\{#1\right\}}
@@ -187,6 +197,10 @@
 \newcommand*{\JJ}{\mathbf{J}}
 \newcommand*{\MM}{\mathbf{M}}
 \newcommand*{\rr}{\mathbf{r}}
+\newcommand*{\xx}{\mathbf{x}}
+\newcommand*{\uu}{\mathbf{u}}
+\newcommand*{\vv}{\mathbf{v}}
+\newcommand*{\ww}{\mathbf{w}}
 \newcommand*{\kk}{\mathbf{k}}
 \newcommand*{\kksq}{\abs{\kk}^2}
 \newcommand*{\FF}{\mathbf{F}}
@@ -195,10 +209,13 @@
 \newcommand*{\xhat}{\mathbf{\hat{x}}}
 \newcommand*{\yhat}{\mathbf{\hat{y}}}
 \newcommand*{\zhat}{\mathbf{\hat{z}}}
+\newcommand*{\uhat}{\mathbf{\hat{u}}}
+\newcommand*{\vhat}{\mathbf{\hat{v}}}
 \newcommand*{\what}{\mathbf{\hat{w}}}
 \newcommand*{\xbar}{\overline{x}}
 \newcommand*{\nn}{{n \times n}}
-\newcommand*{\eps}{\varepsilon}
+\newcommand*{\ce}{\varepsilon}
+\newcommand*{\eps}{\epsilon}
 \newcommand*{\at}[2]{{\left(#1\right)}_{#2}}
 \newcommand*{\atbar}[2]{{\left.#1\right|}_{#2}}
 \newcommand*{\nr}{\norm{r_m}}
@@ -212,6 +229,7 @@
 \newcommand*{\hmj}{h_{mj}}
 \newcommand*{\hmz}{h_{m0}}
 \newcommand*{\hzz}{h_{00}}
+\newcommand*{\ze}{\zeta}
 \newcommand*{\zk}{\zeta_k}
 \newcommand*{\zko}{\zeta_{k+1}}
 \newcommand*{\const}{\mathrm{const.}}
@@ -269,6 +287,7 @@
 \newcommand*{\G}{\Gamma}
 \newcommand*{\hG}{\G/2}
 \newcommand*{\qG}{\G/4}
+\newcommand*{\al}{\alpha}
 \newcommand*{\be}{\beta}
 \newcommand*{\wb}{\w\textrm{-}\be}
 \newcommand*{\gd}{\g\textrm{-}d}
@@ -291,7 +310,7 @@
 
 
 % MSPRF
-\newcommand{\sgn}{\operatorname{sgn}}
+\newcommand{\sign}{\operatorname{sign}}
 
 
 % index

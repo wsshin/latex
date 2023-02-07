@@ -43,7 +43,7 @@
 
 % Change field formats.
 \renewcommand*{\postnotedelim}{}
-\DeclareFieldFormat{postnote}{\addcomma\addspace#1}  % for (citation number)^(section)
+\DeclareFieldFormat{postnote}{\addcomma\addspace#1}  % for (citation number)^(section) used in dissertation
 \DeclareFieldFormat[article]{volume}{\textbf{#1}}
 \DeclareFieldFormat{edition}{#1\addspace ed\addperiod}
 % \DeclareFieldFormat{pages}{#1\addspace\printfield{url}}  % declared later in page range compression
@@ -79,9 +79,19 @@
 	\printtext[bibhyperref]{%
 		\iffieldundef{shortjournal}
 			{\printfield{year}}
-			{\printfield{shortjournal}\addspace\printfield{year}}}}%
+			{\printfield{shortjournal}~\printfield{year}}}}% \addspace instead of ~ puts wider space
 	{\multicitedelim}%
 	{\usebibmacro{postnote}\bibclosebracket}%
+
+\DeclareCiteCommand{\citejournalyearnobracket}%
+	{\usebibmacro{prenote}}%
+	{\usebibmacro{citeindex}%
+	\printtext[bibhyperref]{%
+		\iffieldundef{shortjournal}
+			{\printfield{year}}
+			{\printfield{shortjournal}~\printfield{year}}}}% \addspace instead of ~ puts wider space
+	{\multicitedelim}%
+	{\usebibmacro{postnote}}%
 
 % % For "last name, first name" format in References
 % \DeclareNameAlias{sortname}{last-first}
@@ -95,7 +105,12 @@
 % Put a colon (:) and a space before pages.
 \renewcommand*{\bibpagespunct}{\addcolon\space}
 
-\renewbibmacro{in:}{%  remove "In:" from article citation
+\renewbibmacro*{issue+date}{%
+	\iffieldundef{year}{}{\printtext[parens]{\usebibmacro{date}}}
+}
+
+
+\renewbibmacro*{in:}{%  remove "In:" from article citation
 	\ifentrytype{article}{}{\printtext{\bibstring{in}\intitlepunct}}
 }
 
